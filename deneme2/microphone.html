@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image to ChatGPT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+  <style>
+    /* Global Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      align-items: center;
+    }
+    header, footer {
+      background-color: #333;
+      color: white;
+      width: 100%;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    header h1 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    header h1 img {
+      width: 40px; /* Adjust the width as needed */
+      height: auto;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+    }
+    main h1 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 2rem;
+      margin-bottom: 40px;
+    }
+    main h1 img {
+      width: 40px; /* Adjust the width as needed */
+      height: auto;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      max-width: 400px;
+    }
+    input[type="file"] {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 100%;
+      cursor: pointer;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+    button:hover {
+      background-color: #45a049;
+      transform: scale(1.05);
+    }
+    #response {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 100%;
+      max-width: 400px;
+      text-align: left;
+    }
+    a.return-home {
+      display: block;
+      margin-top: 20px;
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 4px;
+      width: 100%;
+      max-width: 200px;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+    a.return-home:hover {
+      background-color: #444;
+      transform: scale(1.05);
+    }
+    footer p {
+      margin: 0;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>HomeworkAI <img src="h1.png" alt="HomeworkAI logo"></h1>
+    </header>
+    <main>
+      <h1>Voice Input <img src="h1.png" alt="HomeworkAI logo"></h1>
+      <form id="chat-form">
+        <input type="file" id="image-input" name="image-input" accept="image/*" capture>
+        <button type="submit">Send to HomeworkAI</button>
+      </form>
+      <div id="response"></div>
+      <a href="index.html" class="return-home">Return to Home</a>
+    </main>
+    <footer>
+      <p>© 2024 HomeworkAI</p>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('chat-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const imageInputValue = document.getElementById('image-input').files[0];
+
+      const formData = new FormData();
+      formData.append('input_type', 'image');
+      formData.append('image', imageInputValue);
+
+      try {
+        const response = await fetch('YOUR_SERVER_URL', {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (!response.ok) {
+          throw new Error('Network error');
+        }
+
+        const data = await response.json();
+        document.getElementById('response').innerText = data.message;
+      } catch (error) {
+        console.error(error);
+        document.getElementById('response').innerText = 'Error: Unable to process your request.';
+      }
+    });
+  </script>
+</body>
+</html>

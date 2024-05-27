@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HomeworkAI</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <style>
+    /* Global Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      align-items: center;
+      justify-content: space-between; /* Add space between header, main, and footer */
+    }
+    header, footer {
+      background-color: #333;
+      color: white;
+      width: 100%;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      position: relative; /* To position the privacy policy button */
+    }
+    .privacy-policy {
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+    .privacy-policy:hover {
+      background-color: #45a049;
+      transform: scale(1.1);
+    }
+    header h1 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 24px; /* Adjust the font size */
+    }
+    header h1 img {
+      width: 40px;
+      height: auto;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+    }
+    main h1 {
+      font-size: 2.5rem; /* Increase font size */
+      margin-bottom: 20px;
+    }
+    main h2 {
+      font-size: 1.5rem; /* Increase font size for h2 */
+      margin-bottom: 40px;
+      color: #666;
+    }
+    .button-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* Create a 2x2 grid */
+      gap: 20px; /* Space between buttons */
+    }
+    /* Button Styles */
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px;
+      border: none;
+      border-radius: 50%;
+      font-size: 28px; /* Increase font size */
+      cursor: pointer;
+      width: 100px;
+      height: 100px;
+      transition: background-color 0.3s, transform 0.3s;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    }
+    .button:hover {
+      background-color: #45a049;
+      transform: scale(1.1);
+    }
+    .button i, .button img {
+      margin: 0;
+      width: 50%; 
+      height: 50%;
+    }
+    footer p {
+      margin: 0;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>HomeworkAI <img src="h1.png" alt="HomeworkAI logo"></h1>
+    </header>
+    <main>
+      <h1>Welcome to HomeworkAI</h1>
+      <h2>Please Select an Option</h2>
+      <div class="button-container">
+        <a href="text.html" class="button" title="Text" aria-label="Text" role="button" tabindex="0">
+          <i class="fa-solid fa-file-alt"></i>
+        </a>
+        <a href="image.html" class="button" title="Image" aria-label="Image" role="button" tabindex="0">
+          <i class="fa-solid fa-camera"></i>
+        </a>
+        <a href="microphone.html" class="button" title="Microphone" aria-label="Microphone" role="button" tabindex="0">
+          <img src="microphone_icon.svg" alt="Microphone Icon">
+        </a>
+        <a href="file.html" class="button" title="File" aria-label="File" role="button" tabindex="0">
+          <img src="folder_icon.svg" alt="File Icon"> 
+        </a>
+      </div>
+    </main>
+    <footer>
+      <a href="privacy.html" class="privacy-policy">Privacy Policy</a>
+      <p>© 2024 HomeworkAI</p>
+    </footer>
+  </div>
+</body>
+</html>
